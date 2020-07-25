@@ -23,28 +23,6 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    },
-	// Initialize plugin
-    pluginInitialize: function() {
-        var silentBtn = document.getElementById('silent'),
-            modeBtn   = document.getElementById('mode'),
-            plugin    = cordova.plugins.backgroundMode;
-
-        plugin.setDefaults({ color: 'F14F4D' });
-        plugin.overrideBackButton();
-
-        plugin.on('activate', app.onModeActivated);
-        plugin.on('deactivate', app.onModeDeactivated);
-        plugin.on('enable', app.onModeEnabled);
-        plugin.on('disable', app.onModeDisabled);
-
-        modeBtn.onclick = app.onModeButtonClicked;
-
-        if (device.platform == 'Android') {
-            silentBtn.onclick = app.onSilentButtonClicked;
-        } else {
-            app.onSilentButtonClicked();
-        }
     }
 };
 
