@@ -34,7 +34,7 @@ var app = {
 
 function teste_not(){
 	alert("TESTE 01");
-	phonegap.plugins.notification.local.schedule({
+	window.plugins.notification.local.schedule({
 		title: 'My first notification',
 		text: 'Thats pretty easy...',
 		foreground: true
@@ -50,5 +50,10 @@ function teste_not2(){
 }
 
 function teste_not3(){
+	alert("TESTE 03");
 	cordova.plugins.notification.badge.set(9);
+}
+function teste_not4(){
+	alert("TESTE 04");
+	window.plugins.notification.badge.set(9);
 }
