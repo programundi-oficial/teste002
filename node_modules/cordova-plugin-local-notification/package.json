@@ -19,7 +19,7 @@
           "directUrl": "https://raw.githubusercontent.com/katzer/cordova-plugin-local-notifications/master/package.json"
         }
       },
-      "C:\\Users\\RODRIGO\\Desktop\\gitt\\a8\\not2"
+      "C:\\Users\\RODRIGO\\Desktop\\gitt\\a6\\not\\node_modules"
     ]
   ],
   "_from": "git+https://github.com/katzer/cordova-plugin-local-notifications.git",
@@ -50,10 +50,10 @@
     "/"
   ],
   "_resolved": "git+https://github.com/katzer/cordova-plugin-local-notifications.git#6d1b27f1e9d8e2198fd1ea6e9032419295690c47",
-  "_shasum": "f38f85029d271b4be47cb8e65a2884590f024c93",
+  "_shasum": "cc97365ee793988155e96ada4cf64fac76de35ff",
   "_shrinkwrap": null,
   "_spec": "https://github.com/katzer/cordova-plugin-local-notifications.git",
-  "_where": "C:\\Users\\RODRIGO\\Desktop\\gitt\\a8\\not2",
+  "_where": "C:\\Users\\RODRIGO\\Desktop\\gitt\\a6\\not\\node_modules",
   "author": {
     "name": "Sebastián Katzer"
   },
