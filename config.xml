@@ -25,7 +25,7 @@
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.5" />
 	<plugin name="cordova-plugin-insomnia" />	
 	<plugin name="cordova-plugin-x-toast" spec="~2.6.0" />
-    <plugin name="cordova-plugin-local-notifications" />
+    <plugin name="cordova-plugin-local-notifications" spec="https://github.com/katzer/cordova-plugin-local-notifications.git" />
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
