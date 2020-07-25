@@ -19,9 +19,32 @@
        under the License.
 */
 
-var clean = require('./lib/clean');
+var Api = require('./Api');
+var nopt = require('nopt');
 
-clean.run(process.argv).done(null, function(err) {
-    console.error('ERROR: ' + err);
+// Support basic help commands
+if(['--help', '/?', '-h', 'help', '-help', '/help'].indexOf(process.argv[2]) >= 0) {
+    console.log('Usage: \n    clean\n');
+    console.log('Cleans the project directory.');
+    process.exit(0);
+}
+
+// Do some basic argument parsing
+var opts = nopt({
+    'verbose' : Boolean,
+    'silent' : Boolean
+}, { 'd' : '--verbose' });
+
+// Make buildOptions compatible with PlatformApi clean method spec
+opts.argv = opts.argv.original;
+
+// Skip cleaning prepared files when not invoking via cordova CLI.
+opts.noPrepare = true;
+
+require('./lib/loggingHelper').adjustLoggerLevel(opts);
+
+new Api().clean(opts)
+.catch(function(err) {
+    console.error(err.stack);
     process.exit(2);
 });

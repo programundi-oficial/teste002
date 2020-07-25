@@ -1,4 +1,5 @@
-﻿cordova.define("cordova-plugin-device.DeviceProxy", function(require, exports, module) { /*
+﻿cordova.define("cordova-plugin-device.DeviceProxy", function(require, exports, module) {
+/*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -19,9 +20,11 @@
  *
 */
 
+/* global Windows, createUUID */
+
 var ROOT_CONTAINER = "{00000000-0000-0000-FFFF-FFFFFFFFFFFF}";
 var DEVICE_CLASS_KEY = "{A45C254E-DF1C-4EFD-8020-67D146A850E0},10";
-var DEVICE_CLASS_KEY_NO_SEMICOLON = '{A45C254E-DF1C-4EFD-8020-67D146A850E0}10';
+var DEVICE_CLASS_KEY_NO_SEMICOLON = "{A45C254E-DF1C-4EFD-8020-67D146A850E0}10";
 var ROOT_CONTAINER_QUERY = "System.Devices.ContainerId:=\"" + ROOT_CONTAINER + "\"";
 var HAL_DEVICE_CLASS = "4d36e966-e325-11ce-bfc1-08002be10318";
 var DEVICE_DRIVER_VERSION_KEY = "{A8B865DD-2E3D-4094-AD97-E593A70C75D6},3";

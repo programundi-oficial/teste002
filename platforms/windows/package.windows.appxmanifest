@@ -5,6 +5,7 @@
         <DisplayName>NotificationExample</DisplayName>
         <PublisherDisplayName>Apache Cordova Team</PublisherDisplayName>
         <Logo>images\StoreLogo.png</Logo>
+        <Description>A sample Apache Cordova application that responds to the deviceready event.</Description>
     </Properties>
     <Prerequisites>
         <OSMinVersion>6.3.0</OSMinVersion>
@@ -15,7 +16,7 @@
     </Resources>
     <Applications>
         <Application Id="de.appplant.localnotification.example" StartPage="www/index.html">
-            <m2:VisualElements BackgroundColor="#464646" Description="CordovaApp" DisplayName="NotificationExample" ForegroundText="light" Square150x150Logo="images\Square150x150Logo.png" Square30x30Logo="images\Square30x30Logo.png" ToastCapable="true">
+            <m2:VisualElements BackgroundColor="#464646" Description="A sample Apache Cordova application that responds to the deviceready event." DisplayName="NotificationExample" ForegroundText="light" Square150x150Logo="images\Square150x150Logo.png" Square30x30Logo="images\Square30x30Logo.png" ToastCapable="true">
                 <m2:DefaultTile Square310x310Logo="images\Square310x310Logo.png" Square70x70Logo="images\Square70x70Logo.png" Wide310x150Logo="images\Wide310x150Logo.png">
                     <m2:ShowNameOnTiles>
                         <m2:ShowOn Tile="square150x150Logo" />
@@ -24,6 +25,11 @@
                     </m2:ShowNameOnTiles>
                 </m2:DefaultTile>
                 <m2:SplashScreen Image="images\SplashScreen.png" />
+                <m2:InitialRotationPreference>
+                    <m2:Rotation Preference="portrait" />
+                    <m2:Rotation Preference="landscape" />
+                    <m2:Rotation Preference="landscapeFlipped" />
+                </m2:InitialRotationPreference>
             </m2:VisualElements>
         </Application>
     </Applications>
