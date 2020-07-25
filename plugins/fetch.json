@@ -7,20 +7,12 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-x-toast": {
+  "cordova-plugin-device": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-x-toast"
+      "id": "cordova-plugin-device"
     },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-badge": {
-    "source": {
-      "type": "registry",
-      "id": "https://github.com/katzer/cordova-plugin-badge.git"
-    },
-    "is_top_level": true,
+    "is_top_level": false,
     "variables": {}
   }
 }

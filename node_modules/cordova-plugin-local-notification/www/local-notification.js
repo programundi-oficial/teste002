@@ -37,7 +37,6 @@ exports._defaults = {
     group         : null,
     groupSummary  : false,
     icon          : null,
-    iconType      : null,
     id            : 0,
     launch        : true,
     led           : true,
@@ -619,12 +618,12 @@ exports._convertProperties = function (options) {
         console.warn('Property "smallIcon" must be of kind res://...');
     }
 
-    if (typeof options.timeoutAfter === 'boolean') {
-        options.timeoutAfter = options.timeoutAfter ? 3600000 : null;
+    if (typeof options.timeout === 'boolean') {
+        options.timeout = options.timeout ? 3600000 : null;
     }
 
-    if (options.timeoutAfter) {
-        options.timeoutAfter = parseToInt('timeoutAfter', options);
+    if (options.timeout) {
+        options.timeout = parseToInt('timeout', options);
     }
 
     options.data = JSON.stringify(options.data);
@@ -899,7 +898,7 @@ exports._exec = function (action, args, callback, scope) {
 
     if (Array.isArray(args)) {
         params = args;
-    } else if (args !== null) {
+    } else if (args) {
         params.push(args);
     }
 
