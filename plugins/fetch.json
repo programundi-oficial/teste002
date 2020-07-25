@@ -1,16 +1,16 @@
 {
-  "cordova-plugin-background-mode": {
-    "source": {
-      "type": "registry",
-      "id": "https://github.com/katzer/cordova-plugin-background-mode.git"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-insomnia": {
     "source": {
       "type": "registry",
       "id": "https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-local-notification": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-local-notification"
     },
     "is_top_level": true,
     "variables": {}
