@@ -1,69 +1,97 @@
-# Hello World PhoneGap Template [![bitHound Score][bithound-img]][bithound-url]
 
-A PhoneGap Hello World template
+[![PayPayl donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L3HKQCD9UA35A "Donate once-off to this project using Paypal")
 
-## Usage
+Cordova Local-Notification - Example
+====================================
 
-#### PhoneGap CLI
+[Cordova][cordova] plugin to enable an app that isn’t running in the foreground to let its users know it has information for them. The information could be a message, an impending calendar event, or new data on a remote server. They can display an alert message or they can badge the app icon. They can also play a sound when the alert or badge number is shown.
 
-The hello-world template is the default when you create a new application using the [phonegap-cli][phonegap-cli-url].
+## Instructions
+[Download][zip] or clone the _example_ branch and run the following command:
 
-    phonegap create my-app
+```bash
+cordova run [ios|android|windows]
+```
 
-Create an app using this template specifically:
+These will lunch the simulator or any plugged in device and start the example application as seen below in the screenshots.<br/>
+Its also possible to open and debug the project with [Xcode][xcode], [VS Express for Windows][vsexpress], [Android Studio][studio] or [Eclipse][eclipse].
 
-    phonegap create my-app --template hello-world
+<p align="center">
+    <img src="images/overview.png"></img>
+</p>
 
-To see a list of other available PhoneGap templates:
+Scroll down to see more buttons!
 
-    phonegap template list
+The following code snippet will schedule a local notification every day wich will be displayed within the notification center.
 
-## [config.xml][config-xml]
+```javascript
+cordova.plugins.notification.local.schedule({
+    id: 1,
+    text: 'My first notification',
+    sound: isAndroid ? 'file://sound.mp3' : 'file://beep.caf',
+    every: 'day',
+    firstAt: next_monday,
+    data: { key:'value' }
+})
+```
 
-#### android-minSdkVersion (Android only)
+This also fires various callbacks like _trigger_ or _click_ for which you can listen as follows:
 
-Minimum SDK version supported on the target device. Maximum version is blank by default.
+```javascript
+cordova.plugins.notification.local.on('trigger', function (notification) {
+    showToast('triggered: ' + notification.id);
+}, this);
 
-This template sets the minimum to `14`.
+cordova.plugins.notification.local.on('click', function (notification) {
+    showToast('clicked: ' + notification.id);
+}, this);
+```
 
-    <preference name="android-minSdkVersion" value="14" />
-
-#### &lt;access ...&gt; (All)
-
-This template defaults to wide open access.
-
-    <access origin="*" />
-
-It is strongly encouraged that you restrict access to external resources in your application before releasing to production.
-
-For more information on whitelist configuration, see the [Cordova Whitelist Guide][cordova-whitelist-guide] and the [Cordova Whitelist Plugin documentation][cordova-plugin-whitelist]
-
-## [www/index.html][index-html]
-
-#### Content Security Policy (CSP)
-
-The default CSP is similarly open:
-
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-
-Much like the access tag above, you are strongly encouraged to use a more restrictive CSP in production.
-
-A good starting point declaration might be:
-
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" />
-
-For more information on the Content Security Policy, see the [section on CSP in the Cordova Whitelist Plugin documentation][cordova-plugin-whitelist-csp].
-
-Another good resource for generating a good CSP declaration is [CSP is Awesome][csp-is-awesome]
+Please read the plugin's [README][readme] for further requirements and informations.
 
 
-[phonegap-cli-url]: http://github.com/phonegap/phonegap-cli
-[cordova-app]: http://github.com/apache/cordova-app-hello-world
-[bithound-img]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world/badges/score.svg
-[bithound-url]: https://www.bithound.io/github/phonegap/phonegap-app-hello-world
-[config-xml]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/config.xml
-[index-html]: https://github.com/phonegap/phonegap-template-hello-world/blob/master/www/index.html
-[cordova-whitelist-guide]: https://cordova.apache.org/docs/en/dev/guide/appdev/whitelist/index.html
-[cordova-plugin-whitelist]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist
-[cordova-plugin-whitelist-csp]: http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-whitelist#content-security-policy
-[csp-is-awesome]: http://cspisawesome.com
+### iOS8 Permission
+Since iOS8 to use of local notifications the user has to grant the permission before trying to schedule them. When trying to schedule a notification for the first time, a special system dialog will popup.
+
+Note that iOS will only prompt the user only once! Later the user needs to configure the settings manually.
+
+<p align="center">
+    <img src="images/permission.png"></img>
+</p>
+
+## Screenshots
+The following screenshots give an overview of how the notification center on each mobile platform does look like when scheduling multiple local notifications at once.
+
+<p align="center">
+    <img width="30%" src="images/windows.png"></img>
+    &nbsp;
+    <img width="30%" src="images/ios.png"></img>
+    &nbsp;
+    <img width="30%" src="images/android.png"></img>
+</p>
+
+
+## How can I support the further development?
+Your support is needed. If you use the plugin please send us a drop through the donation button.
+
+Thank you!
+
+[![PayPayl donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L3HKQCD9UA35A "Donate once-off to this project using Paypal")
+
+
+## License
+
+This software is released under the [Apache 2.0 License][apache2_license].
+
+© 2013-2015 appPlant UG, Inc. All rights reserved
+
+
+[cordova]: https://cordova.apache.org
+[readme]: https://github.com/katzer/cordova-plugin-local-notifications/blob/master/README.md
+[zip]: https://github.com/katzer/cordova-plugin-local-notifications/archive/example.zip
+[xcode]: https://developer.apple.com/xcode/
+[vsexpress]: https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+[studio]: https://developer.android.com/sdk/installing/studio.html
+[eclipse]: https://developer.android.com/sdk/index.html
+[apache2_license]: http://opensource.org/licenses/Apache-2.0
+

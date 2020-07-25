@@ -126,10 +126,10 @@ namespace WPCordovaClassLib.Cordova.Commands
                             return;
                         }
 
-                        int hideDelay = 2500;
+                        int hideDelay = 2800;
                         if ("long".Equals(duration))
                         {
-                            hideDelay = 5000;
+                            hideDelay = 5500;
                         }
                         else if (!"short".Equals(duration))
                         {
